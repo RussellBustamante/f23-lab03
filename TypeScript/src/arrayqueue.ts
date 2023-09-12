@@ -6,7 +6,7 @@ import { IntQueue } from './queue'
  * shrink in constant time.
  *
  * TODO: This implementation contains two bugs! Use your tests to determine the
- * source of the bugs and correct them!
+ * source of the bugs and correct them! COMPLETE
  *
  * @author Alex Lockwood
  * @author Ye Lu
@@ -94,11 +94,15 @@ function newArrayIntQueue (): IntQueue {
     },
 
     isEmpty: function (): boolean {
-      return size >= 0
+      return size === 0
     },
 
     peek: function (): number | null {
-      return elementData[head]
+      if(this.isEmpty()){
+        return null
+      } else {
+        return elementData[size - 1]
+      }
     },
 
     size: function (): number {
